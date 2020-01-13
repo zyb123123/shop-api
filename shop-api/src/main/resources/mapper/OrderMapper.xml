@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.fh.dao.OrderMapper">
+
+    <insert id="addOrder" parameterType="com.fh.bean.Order">
+        insert into shop_order (id,emberId,status,createTime,totalCount,totalPrice,payType)
+        values (#{id},#{memberId},#{status},#{createTime},#{totalCount},#{totalPrice},#{payType})
+    </insert>
+
+    <insert id="addOrderItemList" parameterType="java.util.List">
+        INSERT INTO shop_order_item (memberId, orderId, productName, productId, image, total, price, subtotalPrice)
+        VALUES
+        <foreach collection="list" item="orderItem" separator=",">
+            (#{orderItem.memberId}, #{orderItem.orderId},
+            #{orderItem.productName}, #{orderItem.productId}, #{orderItem.image},
+            #{orderItem.total}, #{orderItem.price}, #{orderItem.subtotalPrice})
+        </foreach>
+    </insert>
+
+</mapper>

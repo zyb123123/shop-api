@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.fh.dao.PayLogMapper">
+
+    <insert id="addPayLog" parameterType="PayLog">
+        INSERT INTO t_paylog (out_trade_no, order_id, member_id, pay_money, pay_status, pay_type)
+        VALUES
+        (#{outTradeNo}, #{orderId}, #{memberId},
+        #{payMoney}, #{payStatus}, #{payType})
+    </insert>
+
+</mapper>

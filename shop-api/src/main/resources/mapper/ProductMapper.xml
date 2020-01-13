@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.fh.dao.ProductMapper">
+
+    <select id="queryHotProductList" resultType="com.fh.bean.Product">
+        select * from shop_product where isHot = 1
+    </select>
+
+
+    <select id="queryProductById" resultType="com.fh.bean.Product" parameterType="int">
+        select * from shop_product where id = #{id}
+    </select>
+
+    <select id="getProductById" parameterType="int" resultType="com.fh.bean.Product">
+        select * from shop_product where id = #{id}
+    </select>
+
+    <update id="updateProductStock">
+        update shop_product set stock = stock - #{count} where id = #{id} and stock >= #{count}
+    </update>
+
+</mapper>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.fh.dao.CategoryMapper">
+
+
+    <select id="queryListCategory" resultType="com.fh.bean.Category">
+        select * from shop_category
+    </select>
+
+
+</mapper>
